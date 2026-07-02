@@ -79,9 +79,9 @@ export function LegalSectionBody({ content }: LegalSectionContentProps) {
               />
             </p>
           )}
-          {content.contact.postalAddress && (
+          {/* {content.contact.postalAddress && (
             <p>Postal address: {content.contact.postalAddress}</p>
-          )}
+          )} */}
         </div>
       )}
     </div>

@@ -9,7 +9,6 @@
     "supportEmail": "tam@onemotionmanagement.com",
     "privacyEmail": "tam@onemotionmanagement.com",
     "countryOfOperation": "United Kingdom",
-    "registeredAddress": "Groundup Society, United Kingdom",
     "appName": "Groundup Society",
     "iosBundleId": "com.onemotionmanagement.groundupsociety",
     "androidPackageName": "com.onemotionmanagement.groundupsociety"
@@ -247,8 +246,7 @@
           ],
           "contact": {
             "email": "tam@onemotionmanagement.com",
-            "website": "https://groundupsociety.picominds.com",
-            "postalAddress": "Groundup Society, United Kingdom"
+            "website": "https://groundupsociety.picominds.com"
           }
         }
       }
@@ -495,17 +493,12 @@
         "defaultExpanded": false,
         "content": {
           "paragraphs": [
-            "If you have questions about this Privacy Policy or our data practices, contact our privacy team:",
-            "Email: tam@onemotionmanagement.com",
-            "Support: tam@onemotionmanagement.com",
-            "Website: https://groundupsociety.picominds.com",
-            "Postal address: Groundup Society, United Kingdom"
+            "If you have questions about this Privacy Policy or our data practices, contact our privacy team:"
           ],
           "contact": {
             "email": "tam@onemotionmanagement.com",
             "supportEmail": "tam@onemotionmanagement.com",
-            "website": "https://groundupsociety.picominds.com",
-            "postalAddress": "Groundup Society, United Kingdom"
+            "website": "https://groundupsociety.picominds.com"
           }
         }
       }

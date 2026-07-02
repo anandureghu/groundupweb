@@ -46,12 +46,12 @@ export default function ContactPage() {
             </a>
           </div>
 
-          <div>
+          {/* <div>
             <h2 className="mb-1 font-semibold">Registered address</h2>
             <p className="text-muted-foreground">
               {organization.registeredAddress}
             </p>
-          </div>
+          </div> */}
 
           <div>
             <h2 className="mb-1 font-semibold">Website</h2>

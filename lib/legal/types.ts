@@ -10,7 +10,7 @@ export interface LegalContact {
   email?: string;
   supportEmail?: string;
   website?: string;
-  postalAddress?: string;
+  // postalAddress?: string;
 }
 
 export interface LegalSubsection {
@@ -60,7 +60,7 @@ export interface LegalOrganization {
   supportEmail: string;
   privacyEmail: string;
   countryOfOperation: string;
-  registeredAddress: string;
+  // registeredAddress: string;
   appName: string;
   iosBundleId: string;
   androidPackageName: string;
