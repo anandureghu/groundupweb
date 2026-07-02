@@ -13,6 +13,10 @@ export default function Home() {
       label: "Terms",
       href: "/terms",
     },
+    {
+      label: "Contact",
+      href: "/contact",
+    },
   ];
   return (
     <main className="relative flex min-h-full flex-1 items-center justify-center bg-background">

@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 const quicksand = Quicksand({
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
   subsets: ["latin"],
 });

@@ -1,7 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { ThemeToggle } from "@/app/components/theme-toggle";
+import { SiteHeader } from "@/components/site/site-header";
 import type {
   LegalDocument,
   LegalOrganization,
@@ -25,28 +23,7 @@ export function LegalDocumentPage({
 
   return (
     <div className="min-h-full bg-background">
-      <header className="sticky top-0 z-10 border-b border-border/60 bg-background/90 backdrop-blur-sm">
-        <div className="mx-auto flex h-14 max-w-3xl items-center justify-between px-6">
-          <Link href="/" className="inline-flex items-center" aria-label="Home">
-            <Image
-              src="/assets/logo/logo-dark.svg"
-              alt={organization.brandName}
-              width={120}
-              height={29}
-              className="h-7 w-auto dark:hidden"
-            />
-            <Image
-              src="/assets/logo/logo-light.svg"
-              alt=""
-              width={120}
-              height={29}
-              aria-hidden
-              className="hidden h-7 w-auto dark:block"
-            />
-          </Link>
-          <ThemeToggle className="static" />
-        </div>
-      </header>
+      <SiteHeader brandName={organization.brandName} />
 
       <main className="mx-auto w-full max-w-3xl px-6 py-12 md:py-16">
         <article>
