@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { ThemeScript } from "./components/theme-script";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const quicksand = Quicksand({
-  variable: "--font-quicksand",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${quicksand.variable} h-full font-sans antialiased`}
+      className={cn("h-full antialiased font-sans", quicksand.variable)}
     >
       <head>
         <ThemeScript />
