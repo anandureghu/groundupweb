@@ -9,7 +9,7 @@ interface LegalQuickLinkProps {
 
 export function LegalQuickLink({ link, className }: LegalQuickLinkProps) {
   const linkClassName = cn(
-    "text-[15px] text-[#0066cc] underline underline-offset-2 hover:opacity-80 dark:text-[#2997ff]",
+    "text-[15px] text-[#0066cc] underline underline-offset-2 hover:opacity-80",
     className,
   );
 

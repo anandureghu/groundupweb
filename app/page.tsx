@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ThemeToggle } from "./components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -13,14 +12,9 @@ export default function Home() {
       label: "Terms",
       href: "/terms",
     },
-    {
-      label: "Contact",
-      href: "/contact",
-    },
   ];
   return (
     <main className="relative flex min-h-full flex-1 items-center justify-center bg-background">
-      <ThemeToggle />
       <div className="flex flex-col items-center justify-center gap-4 text-center">
         <Image
           src="/assets/logo/logo-dark.svg"
@@ -28,16 +22,7 @@ export default function Home() {
           width={691}
           height={167}
           priority
-          className="h-auto w-[min(80vw,320px)] dark:hidden"
-        />
-        <Image
-          src="/assets/logo/logo-light.svg"
-          alt=""
-          width={691}
-          height={167}
-          priority
-          aria-hidden
-          className="hidden h-auto w-[min(80vw,320px)] dark:block"
+          className="h-auto w-[min(80vw,320px)]"
         />
         <h1 className="text-2xl font-bold">Coming Soon</h1>
         <div>

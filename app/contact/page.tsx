@@ -30,7 +30,7 @@ export default function ContactPage() {
             <h2 className="mb-1 font-semibold">General support</h2>
             <a
               href={`mailto:${organization.supportEmail}`}
-              className="text-[#0066cc] underline underline-offset-2 hover:opacity-80 dark:text-[#2997ff]"
+              className="text-[#0066cc] underline underline-offset-2 hover:opacity-80"
             >
               {organization.supportEmail}
             </a>
@@ -40,7 +40,7 @@ export default function ContactPage() {
             <h2 className="mb-1 font-semibold">Privacy enquiries</h2>
             <a
               href={`mailto:${organization.privacyEmail}`}
-              className="text-[#0066cc] underline underline-offset-2 hover:opacity-80 dark:text-[#2997ff]"
+              className="text-[#0066cc] underline underline-offset-2 hover:opacity-80"
             >
               {organization.privacyEmail}
             </a>
@@ -57,7 +57,7 @@ export default function ContactPage() {
             <h2 className="mb-1 font-semibold">Website</h2>
             <a
               href={organization.website}
-              className="text-[#0066cc] underline underline-offset-2 hover:opacity-80 dark:text-[#2997ff]"
+              className="text-[#0066cc] underline underline-offset-2 hover:opacity-80"
             >
               {organization.website.replace(/^https?:\/\//, "")}
             </a>
