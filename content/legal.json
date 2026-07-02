@@ -1,0 +1,658 @@
+{
+  "version": "1.1",
+  "lastUpdated": "2026-07-03",
+  "lastUpdatedDisplay": "July 3, 2026",
+  "organization": {
+    "legalName": "Groundup Society",
+    "brandName": "Groundup Society",
+    "website": "https://groundupsociety.picominds.com",
+    "supportEmail": "tam@onemotionmanagement.com",
+    "privacyEmail": "tam@onemotionmanagement.com",
+    "countryOfOperation": "United Kingdom",
+    "registeredAddress": "Groundup Society, United Kingdom",
+    "appName": "Groundup Society",
+    "iosBundleId": "com.onemotionmanagement.groundupsociety",
+    "androidPackageName": "com.onemotionmanagement.groundupsociety"
+  },
+  "routes": {
+    "privacyPolicy": "/privacy",
+    "termsOfUse": "/terms"
+  },
+  "termsOfUse": {
+    "pageTitle": "Terms of Use",
+    "documentTitle": "Groundup Society Terms of Use",
+    "legalInformationNotice": "Legal Information & Notices",
+    "version": "1.1",
+    "lastUpdated": "2026-07-03",
+    "lastUpdatedDisplay": "July 3, 2026",
+    "updatedBy": "Groundup Society Legal",
+    "metaDescription": "Terms of Use for the Groundup Society website, mobile app, membership programme, and related cafe services.",
+    "copyrightNotice": "Copyright © 2026 One Motion Management. All rights reserved.",
+    "intro": {
+      "paragraphs": [],
+      "quickLinks": [
+        {
+          "label": "Privacy Policy",
+          "href": "/privacy",
+          "type": "page"
+        },
+        {
+          "label": "Contact support",
+          "href": "mailto:tam@onemotionmanagement.com",
+          "type": "email"
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "ownership-and-agreement",
+        "title": "Ownership of Service; Agreement to Terms of Use",
+        "defaultExpanded": true,
+        "content": {
+          "paragraphs": [
+            "These Terms of Use (the \"Terms of Use\") apply to the Groundup Society website located at groundupsociety.picominds.com, the Groundup Society mobile application for iOS and Android (the \"App\"), and all associated pages, features, and services linked to or operated by Groundup Society, One Motion Management, and their affiliates (collectively, the \"Service\"). The Service is operated by One Motion Management (\"Groundup Society\", \"we\", \"us\", or \"our\") and its licensors.",
+            "BY USING THE SERVICE, YOU AGREE TO THESE TERMS OF USE AND TO OUR PRIVACY POLICY. IF YOU DO NOT AGREE, DO NOT USE THE SERVICE.",
+            "We reserve the right, at our sole discretion, to change, modify, add, or remove portions of these Terms of Use at any time. It is your responsibility to check these Terms of Use periodically for changes. Your continued use of the Service following the posting of changes will mean that you accept and agree to the changes. As long as you comply with these Terms of Use, we grant you a personal, non-exclusive, non-transferable, limited privilege to access and use the Service for your personal membership purposes."
+          ]
+        }
+      },
+      {
+        "id": "content",
+        "title": "Content",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "All text, graphics, user interfaces, visual interfaces, photographs, trademarks, logos, menus, artwork, software, and computer code (collectively, \"Content\"), including but not limited to the design, structure, selection, coordination, expression, \"look and feel\", and arrangement of such Content contained in the Service, is owned, controlled, or licensed by or to Groundup Society and is protected by copyright, trademark, and other intellectual property laws.",
+            "Except as expressly provided in these Terms of Use, no part of the Service and no Content may be copied, reproduced, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, or distributed in any way to any other computer, server, website, or other medium for publication or distribution or for any commercial enterprise, without our express prior written consent.",
+            "You may use information on Groundup Society products, menus, stores, and membership benefits purposely made available through the Service for your personal, non-commercial informational purposes, provided that you (1) do not remove any proprietary notice language in all copies of such materials, (2) do not copy or post such information on any networked computer or broadcast it in any media, (3) make no modifications to any such information, and (4) do not make any additional representations or warranties relating to such materials."
+          ]
+        }
+      },
+      {
+        "id": "your-use-of-the-service",
+        "title": "Your Use of the Service",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "You may not use any \"deep-link\", \"page-scrape\", \"robot\", \"spider\", or other automatic device, program, algorithm, or methodology, or any similar or equivalent manual process, to access, acquire, copy, or monitor any portion of the Service or any Content, or in any way reproduce or circumvent the navigational structure or presentation of the Service or any Content, to obtain or attempt to obtain any materials, documents, or information through any means not purposely made available through the Service. We reserve the right to bar any such activity.",
+            "You may not attempt to gain unauthorized access to any portion or feature of the Service, or any other systems or networks connected to the Service or to any Groundup Society server, or to any of the services offered on or through the Service, by hacking, password mining, or any other illegitimate means.",
+            "You may not probe, scan, or test the vulnerability of the Service or any network connected to the Service, nor breach the security or authentication measures on the Service or any network connected to the Service. You may not reverse look-up, trace, or seek to trace any information on any other user of or visitor to the Service, or any other member, including any account not owned by you, to its source, or exploit the Service or any service or information made available or offered by or through the Service in any way where the purpose is to reveal any information, including but not limited to personal identification or information, other than your own information, as provided for by the Service.",
+            "You agree that you will not take any action that imposes an unreasonable or disproportionately large load on the infrastructure of the Service or our systems or networks, or any systems or networks connected to the Service.",
+            "You agree not to use any device, software, or routine to interfere or attempt to interfere with the proper working of the Service or any transaction being conducted on the Service, or with any other person's use of the Service.",
+            "You may not forge headers or otherwise manipulate identifiers in order to disguise the origin of any message or transmittal you send to us on or through the Service. You may not pretend that you are, or that you represent, someone else, or impersonate any other individual or entity.",
+            "You may not use the Service or any Content for any purpose that is unlawful or prohibited by these Terms of Use, or to solicit the performance of any illegal activity or other activity which infringes the rights of Groundup Society or others."
+          ]
+        }
+      },
+      {
+        "id": "membership-orders-and-other-terms",
+        "title": "Membership, Orders, Rewards, and Other Terms and Conditions",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Additional terms and conditions may apply to membership, reward points, coupons, walking challenges, referrals, orders, in-store redemptions, and to specific portions or features of the Service, including promotions or other similar features, all of which terms are made a part of these Terms of Use by this reference. You agree to abide by such other terms and conditions, including where applicable representing that you are of sufficient legal age to use or participate in such service or feature. If there is a conflict between these Terms of Use and the terms posted for or applicable to a specific portion of the Service or for any service offered on or through the Service, the latter terms shall control with respect to your use of that portion of the Service or the specific service.",
+            "Our obligations, if any, with regard to cafe products, orders, and membership benefits are governed by these Terms of Use, the Privacy Policy, and any additional terms displayed in the App at the time of use. Nothing on the Service should be construed to alter pricing, availability, or store policies except as expressly stated.",
+            "We may make changes to any products, menus, rewards, challenges, stores, or services offered through the Service, or to the applicable prices or point values for any such products or services, at any time, without notice. The materials on the Service with respect to products and services may be out of date, and we make no commitment to update the materials on the Service with respect to such products and services.",
+            "Reward points, coupons, and promotional offers have no cash value unless we expressly state otherwise in writing. Points may expire, be adjusted, or be withdrawn if we suspect misuse, fraud, or error. Redemptions are subject to product availability and in-store verification.",
+            "The following policies also govern and apply to your use of the Service, and they are incorporated herein by this reference: the Groundup Society Privacy Policy. Each of these policies may be changed from time to time and are effective upon posting such changes on the Service or as otherwise described in those policies."
+          ],
+          "links": [
+            {
+              "label": "Groundup Society Privacy Policy",
+              "href": "/privacy",
+              "type": "page"
+            }
+          ]
+        }
+      },
+      {
+        "id": "accounts-passwords-and-security",
+        "title": "Accounts, Passwords and Security",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Certain features or services offered on or through the Service require you to open a member account, including setting up login credentials and completing your profile. You must be at least 13 years old to create an account. If you are under the age of majority in your jurisdiction, you may use the Service only with the consent of a parent or legal guardian where required by law.",
+            "You are entirely responsible for maintaining the confidentiality of the information you hold for your account, including your password, and for any and all activity that occurs under your account as a result of your failing to keep this information secure and confidential. You agree to notify us immediately of any unauthorized use of your account or password, or any other breach of security. You may be held liable for losses incurred by Groundup Society or any other user of or visitor to the Service due to someone else using your account or password as a result of your failing to keep your account information secure and confidential.",
+            "You may not use anyone else's account or password at any time without the express permission and consent of the holder of that account. We cannot and will not be liable for any loss or damage arising from your failure to comply with these obligations.",
+            "Your member QR code is linked to your account. You must not share, sell, transfer, or permit another person to use your account or QR code. You agree to present your member QR code or account information when requested in store for rewards, redemptions, referrals, or order collection."
+          ]
+        }
+      },
+      {
+        "id": "privacy",
+        "title": "Privacy",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Groundup Society's Privacy Policy applies to use of the Service, and its terms are made a part of these Terms of Use by this reference.",
+            "Additionally, by using the Service, you acknowledge and agree that Internet and mobile transmissions are never completely private or secure. You understand that any message or information you send to the Service may be read or intercepted by others, even if there is a special notice that a particular transmission is encrypted."
+          ],
+          "links": [
+            {
+              "label": "To view Groundup Society's Privacy Policy, click here",
+              "href": "/privacy",
+              "type": "page"
+            }
+          ]
+        }
+      },
+      {
+        "id": "third-party-services-and-links",
+        "title": "Third-Party Services and Links to Other Sites",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "The Service may rely on third-party platforms and services, including cloud hosting, authentication, email delivery, push notifications, maps, Apple Health, Health Connect, and payment or ordering systems where applicable. Your use of those services may be subject to separate third-party terms and privacy policies.",
+            "The Service may contain links to other independent third-party websites (\"Linked Sites\"). These Linked Sites are provided solely as a convenience to our visitors and members. Such Linked Sites are not under our control, and we are not responsible for and do not endorse the content of such Linked Sites, including any information or materials contained on such Linked Sites. You will need to make your own independent judgment regarding your interaction with these Linked Sites.",
+            "Optional device permissions, including location, health data, camera, photos, and notifications, can be managed in your device settings. If permission is denied, related features may not work."
+          ]
+        }
+      },
+      {
+        "id": "disclaimers",
+        "title": "Disclaimers",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "GROUNDUP SOCIETY DOES NOT PROMISE THAT THE SERVICE OR ANY CONTENT, SERVICE, OR FEATURE OF THE SERVICE WILL BE ERROR-FREE OR UNINTERRUPTED, OR THAT ANY DEFECTS WILL BE CORRECTED, OR THAT YOUR USE OF THE SERVICE WILL PROVIDE SPECIFIC RESULTS. THE SERVICE AND ITS CONTENT ARE DELIVERED ON AN \"AS-IS\" AND \"AS-AVAILABLE\" BASIS. ALL INFORMATION PROVIDED ON THE SERVICE IS SUBJECT TO CHANGE WITHOUT NOTICE. WE CANNOT ENSURE THAT ANY FILES OR OTHER DATA YOU DOWNLOAD FROM THE SERVICE WILL BE FREE OF VIRUSES OR CONTAMINATION OR DESTRUCTIVE FEATURES.",
+            "GROUNDUP SOCIETY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY WARRANTIES OF ACCURACY, NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR PURPOSE, TO THE FULLEST EXTENT PERMITTED BY LAW. GROUNDUP SOCIETY DISCLAIMS ANY AND ALL LIABILITY FOR THE ACTS, OMISSIONS, AND CONDUCT OF ANY THIRD PARTIES IN CONNECTION WITH OR RELATED TO YOUR USE OF THE SERVICE AND/OR ANY THIRD-PARTY SERVICES. YOU ASSUME TOTAL RESPONSIBILITY FOR YOUR USE OF THE SERVICE AND ANY LINKED SITES. YOUR SOLE REMEDY AGAINST GROUNDUP SOCIETY FOR DISSATISFACTION WITH THE SERVICE OR ANY CONTENT IS TO STOP USING THE SERVICE OR ANY SUCH CONTENT. THIS LIMITATION OF RELIEF IS A PART OF THE BARGAIN BETWEEN THE PARTIES.",
+            "The above disclaimer applies to any damages, liability, or injuries caused by any failure of performance, error, omission, interruption, deletion, defect, delay in operation or transmission, computer virus, communication line failure, theft or destruction of or unauthorized access to, alteration of, or use, whether for breach of contract, tort, negligence, or any other cause of action.",
+            "We reserve the right to do any of the following, at any time, without notice: (1) to modify, suspend, or terminate operation of or access to the Service, or any portion of the Service, for any reason; (2) to modify or change the Service, or any portion of the Service, and any applicable policies or terms; and (3) to interrupt the operation of the Service, or any portion of the Service, as necessary to perform routine or non-routine maintenance, error correction, or other changes."
+          ]
+        }
+      },
+      {
+        "id": "limitation-of-liability",
+        "title": "Limitation of Liability",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Except where prohibited by law, in no event will Groundup Society be liable to you for any indirect, consequential, exemplary, incidental, or punitive damages, including lost profits, even if Groundup Society has been advised of the possibility of such damages.",
+            "If, notwithstanding the other provisions of these Terms of Use, Groundup Society is found to be liable to you for any damage or loss which arises out of or is in any way connected with your use of the Service or any Content, Groundup Society's liability shall in no event exceed the greater of (1) the total of any fees paid by you to us for the Service in the six months prior to the date of the initial claim made against Groundup Society, or (2) GBP 100.00. Some jurisdictions do not allow limitations of liability, so the foregoing limitation may not apply to you.",
+            "Nothing in these Terms of Use excludes or limits liability that cannot be excluded or limited under applicable law, including liability for death or personal injury caused by negligence or for fraud."
+          ]
+        }
+      },
+      {
+        "id": "indemnity",
+        "title": "Indemnity",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "You agree to indemnify and hold Groundup Society, One Motion Management, its officers, directors, shareholders, predecessors, successors in interest, employees, agents, subsidiaries, and affiliates, harmless from any demands, loss, liability, claims, or expenses (including attorneys' fees), made against Groundup Society by any third party due to or arising out of or in connection with your use of the Service or your violation of these Terms of Use."
+          ]
+        }
+      },
+      {
+        "id": "violation-of-terms",
+        "title": "Violation of These Terms of Use",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "We may disclose any information we have about you (including your identity) if we determine that such disclosure is necessary in connection with any investigation or complaint regarding your use of the Service, or to identify, contact, or bring legal action against someone who may be causing injury to or interference with (either intentionally or unintentionally) our rights or property, or the rights or property of visitors to or users of the Service, including our members.",
+            "We reserve the right at all times to disclose any information that we deem necessary to comply with any applicable law, regulation, legal process, or governmental request. We also may disclose your information when we determine that applicable law requires or permits such disclosure, including exchanging information with other companies and organizations for fraud protection purposes.",
+            "You acknowledge and agree that we may preserve any transmittal or communication by you with us through the Service or any service offered on or through the Service, and may also disclose such data if required to do so by law or if we determine that such preservation or disclosure is reasonably necessary to (1) comply with legal process, (2) enforce these Terms of Use, (3) respond to claims that any such data violates the rights of others, or (4) protect the rights, property, or personal safety of Groundup Society, its employees, users of or visitors to the Service, and the public.",
+            "You agree that we may, in our sole discretion and without prior notice, terminate your access to the Service and/or block your future access to the Service if we determine that you have violated these Terms of Use or other agreements or guidelines which may be associated with your use of the Service.",
+            "If we take any legal action against you as a result of your violation of these Terms of Use, we will be entitled to recover from you, and you agree to pay, all reasonable attorneys' fees and costs of such action, in addition to any other relief granted to us. You agree that Groundup Society will not be liable to you or to any third party for termination of your access to the Service as a result of any violation of these Terms of Use."
+          ]
+        }
+      },
+      {
+        "id": "governing-law-and-disputes",
+        "title": "Governing Law; Dispute Resolution",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "You agree that all matters relating to your access to or use of the Service, including all disputes, will be governed by the laws of England and Wales without regard to its conflicts of laws provisions.",
+            "If you are a consumer based in the United Kingdom or European Union, you may also have mandatory rights under the laws of your country of residence. Nothing in these Terms of Use affects those rights. You may make a claim in the courts of the country where you reside where required by applicable consumer law.",
+            "Any claim under these Terms of Use should first be raised with us at tam@onemotionmanagement.com so the parties can attempt, promptly and in good faith, to resolve any such dispute. If we are unable to resolve any such dispute within a reasonable time (not to exceed thirty (30) days), either party may pursue any right or remedy available under applicable law.",
+            "Any claim under these Terms of Use must be brought within one (1) year after the cause of action arises, or such claim or cause of action is barred, except where a longer period is required by applicable law."
+          ]
+        }
+      },
+      {
+        "id": "void-where-prohibited",
+        "title": "Void Where Prohibited",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "We administer and operate the Service from the United Kingdom. Although the Service is accessible in various locations, not all features, products, or services discussed, referenced, provided, or offered through or on the Service are available to all persons or in all geographic locations, or appropriate or available for use outside the United Kingdom. We reserve the right to limit, in our sole discretion, the provision and quantity of any feature, product, or service to any person or geographic area. Any offer for any feature, product, or service made on the Service is void where prohibited.",
+            "If you choose to access the Service from outside the United Kingdom, you do so on your own initiative and you are solely responsible for complying with applicable local laws."
+          ]
+        }
+      },
+      {
+        "id": "miscellaneous",
+        "title": "Miscellaneous",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "You may not use or export or re-export any Content or any copy or adaptation of such Content, or any product or service offered on the Service, in violation of any applicable laws or regulations.",
+            "If any of the provisions of these Terms of Use are held by a court or other tribunal of competent jurisdiction to be void or unenforceable, such provisions shall be limited or eliminated to the minimum extent necessary and replaced with a valid provision that best embodies the intent of these Terms of Use, so that these Terms of Use shall remain in full force and effect.",
+            "These Terms of Use constitute the entire agreement between you and Groundup Society with regard to your use of the Service, and any and all other written or oral agreements or understandings previously existing between you and Groundup Society with respect to such use are hereby superseded and cancelled, except for any separate purchase or membership terms expressly agreed in writing.",
+            "Our failure to insist on or enforce strict performance of these Terms of Use shall not be construed as a waiver by us of any provision or any right we have to enforce these Terms of Use, nor shall any course of conduct between us and you or any other party be deemed to modify any provision of these Terms of Use. These Terms of Use shall not be interpreted or construed to confer any rights or remedies on any third parties."
+          ]
+        }
+      },
+      {
+        "id": "feedback-and-information",
+        "title": "Feedback and Information",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Any feedback, suggestions, or ideas you provide to us through the Service shall be deemed non-confidential. We shall be free to use such information on an unrestricted basis.",
+            "The information contained in the Service is subject to change without notice.",
+            "Copyright © 2026 One Motion Management. All rights reserved.",
+            "Groundup Society · tam@groundupsociety.com · groundupsociety.picominds.com"
+          ],
+          "contact": {
+            "email": "tam@onemotionmanagement.com",
+            "website": "https://groundupsociety.picominds.com",
+            "postalAddress": "Groundup Society, United Kingdom"
+          }
+        }
+      }
+    ]
+  },
+  "privacyPolicy": {
+    "pageTitle": "Privacy Policy",
+    "documentTitle": "Groundup Society Privacy Policy",
+    "version": "1.1",
+    "lastUpdated": "2026-07-03",
+    "lastUpdatedDisplay": "July 3, 2026",
+    "metaDescription": "Groundup Society Privacy Policy describes how we collect, use, and share your personal data in our mobile app and website.",
+    "intro": {
+      "paragraphs": [
+        "Groundup Society's Privacy Policy describes how Groundup Society collects, uses, and shares your personal data.",
+        "In addition to this Privacy Policy, we provide data and privacy information embedded in our App and certain features that ask to use your personal data or device permissions. This product-specific information is shown when you create an account, enable optional permissions, or use features such as walking challenges, store locator, notifications, or profile photo upload.",
+        "You will be given an opportunity to review permission requests and legal terms before using these features. You also can view this information at any time in the App settings or online at groundupsociety.picominds.com/privacy.",
+        "You can familiarize yourself with our privacy practices, accessible via the headings below, and contact us if you have any questions."
+      ],
+      "quickLinks": [
+        {
+          "label": "Terms of Use",
+          "href": "/terms",
+          "type": "page"
+        },
+        {
+          "label": "Contact privacy team",
+          "href": "mailto:tam@onemotionmanagement.com",
+          "type": "email"
+        }
+      ],
+      "tableOfContents": [
+        "What Is Personal Data at Groundup Society?",
+        "Your Privacy Rights at Groundup Society",
+        "Personal Data Groundup Society Collects from You",
+        "Personal Data Groundup Society Receives from Other Sources",
+        "Groundup Society's Use of Personal Data",
+        "Groundup Society's Sharing of Personal Data",
+        "Protection of Personal Data at Groundup Society",
+        "Children and Personal Data",
+        "Cookies and Other Technologies",
+        "Transfer of Personal Data Between Countries",
+        "Our Companywide Commitment to Your Privacy",
+        "Privacy Questions"
+      ]
+    },
+    "sections": [
+      {
+        "id": "what-is-personal-data",
+        "title": "What Is Personal Data at Groundup Society?",
+        "defaultExpanded": true,
+        "content": {
+          "paragraphs": [
+            "At Groundup Society, we believe strongly in being transparent about how we collect and use your data. This section describes personal data in the context of our membership app and services.",
+            "Personal data is any information that relates to an identified or identifiable individual. This includes information you provide directly, information generated through your membership activity, and information collected from your device when you grant permission for optional features.",
+            "Examples of personal data we process include your name, email address, mobile number, birthday, account identifiers, reward and order history, referral activity, optional health step data, optional location data, profile photo, and device push notification tokens."
+          ]
+        }
+      },
+      {
+        "id": "your-privacy-rights",
+        "title": "Your Privacy Rights at Groundup Society",
+        "defaultExpanded": true,
+        "content": {
+          "paragraphs": [
+            "Depending on where you live, you may have the right to access, correct, delete, restrict, or object to certain processing of your personal data, to withdraw consent, and to receive a portable copy of your data.",
+            "You can update much of your account information directly in the App. For other requests, contact tam@onemotionmanagement.com. We may need to verify your identity before fulfilling a request and will respond within the time required by applicable law.",
+            "If you are in the United Kingdom or European Economic Area, you may also have the right to lodge a complaint with your local data protection authority.",
+            "You can opt out of marketing communications at any time through your account settings or by contacting us. You can manage optional device permissions, including health, location, camera, photos, and notifications, in your device settings."
+          ]
+        }
+      },
+      {
+        "id": "data-we-collect-from-you",
+        "title": "Personal Data Groundup Society Collects from You",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "We collect personal data you provide when you register, complete your profile, place orders, redeem rewards, participate in challenges or promotions, communicate with us, or use in-store membership features."
+          ],
+          "subsections": [
+            {
+              "title": "Account and profile information",
+              "paragraphs": [
+                "When you create a Groundup Society account, we collect your first and last name, email address, mobile number, birthday, password (stored in hashed form), marketing opt-in preference, and referral code if you provide one. You may also choose to upload a profile photo."
+              ]
+            },
+            {
+              "title": "Membership and transaction information",
+              "paragraphs": [
+                "We collect information about your use of membership features, including reward points, order history, coupon collections and redemptions, challenge enrollment and progress, referral activity, member QR code usage, and records of your acceptance of our Terms of Use and Privacy Policy, including version and timestamp."
+              ]
+            },
+            {
+              "title": "Communications",
+              "paragraphs": [
+                "We collect information related to email verification during signup, password reset requests, push notifications and in-app messages, and support enquiries you send to us."
+              ]
+            },
+            {
+              "title": "Optional device and permission-based data",
+              "paragraphs": [
+                "With your permission, we may collect step count data from Apple Health or Health Connect for walking challenges; approximate location while using the App to show nearby stores; camera input when staff scan member QR codes or when you upload images; photo library access when you choose images to upload; and push notification tokens to deliver alerts to your device."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "data-from-other-sources",
+        "title": "Personal Data Groundup Society Receives from Other Sources",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "We may receive limited personal data from service providers and partners that help us operate the Service.",
+            "For example, we use cloud hosting and authentication providers to operate accounts and store profile data; email delivery providers to send verification codes and account messages; and push notification infrastructure to deliver alerts to your device.",
+            "If another member uses your referral code during signup, we receive information needed to attribute the referral and apply programme rewards in accordance with our rules."
+          ]
+        }
+      },
+      {
+        "id": "how-we-use-data",
+        "title": "Groundup Society's Use of Personal Data",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "We use personal data to power the Service, provide membership benefits, and keep our platform secure. This includes:"
+          ],
+          "bullets": [
+            "Creating and managing your member account and profile",
+            "Authenticating you and protecting your account",
+            "Processing orders, rewards, redemptions, coupons, and referrals",
+            "Operating walking challenges and step-based promotions when you enable health permissions",
+            "Showing nearby stores when you enable location permissions",
+            "Sending service messages such as verification codes, password resets, order updates, and account notices",
+            "Sending marketing communications where you have opted in",
+            "Providing customer support and responding to your requests",
+            "Detecting, preventing, and addressing fraud, abuse, and security issues",
+            "Complying with legal obligations and enforcing our Terms of Use",
+            "Understanding aggregated usage patterns to improve our App, menu, stores, and services"
+          ],
+          "subsections": [
+            {
+              "title": "Legal bases for processing",
+              "paragraphs": [
+                "Where UK GDPR, EU GDPR, or similar laws apply, we rely on contract (to provide membership services), legitimate interests (to secure and improve the Service), consent (for optional marketing and device permissions), and legal obligation (where we must retain or disclose information)."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "how-we-share-data",
+        "title": "Groundup Society's Sharing of Personal Data",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Groundup Society does not sell your personal data.",
+            "We share personal data only in the circumstances described below."
+          ],
+          "subsections": [
+            {
+              "title": "Service providers",
+              "paragraphs": [
+                "We work with companies that provide services on our behalf, such as cloud hosting, database and authentication services, email delivery, and push notification delivery. These providers process personal data only as needed to perform services for us and are required to protect it."
+              ]
+            },
+            {
+              "title": "Groundup staff and stores",
+              "paragraphs": [
+                "Authorized staff may access member information in store to verify identity, process orders, apply rewards, and provide support."
+              ]
+            },
+            {
+              "title": "Legal, safety, and business transfers",
+              "paragraphs": [
+                "We may disclose information if required by law, court order, or governmental request, or to protect the rights, safety, and security of our members, staff, and business. If we are involved in a merger, acquisition, or sale of assets, personal data may be transferred as part of that transaction subject to continued protections."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "data-security",
+        "title": "Protection of Personal Data at Groundup Society",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Groundup Society implements administrative, technical, and organizational measures designed to protect personal data, including encrypted connections, access controls, and hashed password storage.",
+            "No method of transmission over the Internet or method of electronic storage is completely secure. You can help protect your account by using a strong password and keeping your login credentials confidential. Please contact us immediately if you believe your account has been compromised."
+          ]
+        }
+      },
+      {
+        "id": "children",
+        "title": "Children and Personal Data",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "The Groundup Society App is not directed to children under 13, and we do not knowingly collect personal data from children under 13.",
+            "If you are between 13 and the age of majority in your country, you may use the Service only with permission from a parent or legal guardian where required by law.",
+            "If you believe we have collected information from a child under 13, contact tam@onemotionmanagement.com and we will take steps to delete it."
+          ]
+        }
+      },
+      {
+        "id": "cookies-and-technologies",
+        "title": "Cookies and Other Technologies",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "Our website may use cookies and similar technologies to operate pages, remember preferences, and understand how visitors use the site.",
+            "The mobile App does not use advertising cookies. The App may store local preferences and session information on your device to keep you signed in and remember settings.",
+            "You can control cookies through your browser settings. Disabling cookies may affect website functionality."
+          ]
+        }
+      },
+      {
+        "id": "international-transfers",
+        "title": "Transfer of Personal Data Between Countries",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "We are based in the United Kingdom. Your personal data may be processed in the UK and in other countries where our service providers operate.",
+            "Where personal data is transferred outside your country, we use appropriate safeguards such as standard contractual clauses or equivalent protections required by applicable law."
+          ]
+        }
+      },
+      {
+        "id": "companywide-commitment",
+        "title": "Our Companywide Commitment to Your Privacy",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "To make sure your personal data is secure, we communicate our privacy and security guidelines to staff and enforce privacy safeguards across the business.",
+            "We design our App to minimize the data we collect, ask for permission before accessing optional device data, and review our practices as we add new features.",
+            "When we make material changes to this Privacy Policy, we will update the date at the top of this page and may ask you to review and accept the updated version before continuing to use the Service."
+          ]
+        }
+      },
+      {
+        "id": "privacy-questions",
+        "title": "Privacy Questions",
+        "defaultExpanded": false,
+        "content": {
+          "paragraphs": [
+            "If you have questions about this Privacy Policy or our data practices, contact our privacy team:",
+            "Email: tam@onemotionmanagement.com",
+            "Support: tam@onemotionmanagement.com",
+            "Website: https://groundupsociety.picominds.com",
+            "Postal address: Groundup Society, United Kingdom"
+          ],
+          "contact": {
+            "email": "tam@onemotionmanagement.com",
+            "supportEmail": "tam@onemotionmanagement.com",
+            "website": "https://groundupsociety.picominds.com",
+            "postalAddress": "Groundup Society, United Kingdom"
+          }
+        }
+      }
+    ],
+    "appStorePrivacyLabels": {
+      "dataUsedToTrackYou": [],
+      "dataLinkedToYou": [
+        {
+          "category": "Contact Info",
+          "types": ["Name", "Email Address", "Phone Number"],
+          "purposes": [
+            "App Functionality",
+            "Account Management",
+            "Developer Communications"
+          ]
+        },
+        {
+          "category": "Identifiers",
+          "types": ["User ID"],
+          "purposes": ["App Functionality", "Account Management"]
+        },
+        {
+          "category": "Purchases",
+          "types": ["Purchase History"],
+          "purposes": ["App Functionality"]
+        },
+        {
+          "category": "User Content",
+          "types": ["Photos or Videos"],
+          "purposes": ["App Functionality"],
+          "optional": true
+        },
+        {
+          "category": "Health & Fitness",
+          "types": ["Fitness"],
+          "purposes": ["App Functionality"],
+          "optional": true
+        },
+        {
+          "category": "Location",
+          "types": ["Coarse Location"],
+          "purposes": ["App Functionality"],
+          "optional": true
+        },
+        {
+          "category": "Usage Data",
+          "types": ["Product Interaction"],
+          "purposes": ["App Functionality", "Analytics"]
+        },
+        {
+          "category": "Diagnostics",
+          "types": ["Crash Data", "Performance Data"],
+          "purposes": ["App Functionality"]
+        }
+      ],
+      "dataNotLinkedToYou": []
+    },
+    "googlePlayDataSafety": {
+      "collectsData": true,
+      "sharesData": false,
+      "encryptedInTransit": true,
+      "usersCanRequestDeletion": true,
+      "dataTypes": [
+        {
+          "category": "Personal info",
+          "types": ["Name", "Email address", "Phone number", "User IDs"],
+          "collected": true,
+          "shared": false,
+          "required": true,
+          "purposes": [
+            "App functionality",
+            "Account management",
+            "Developer communications"
+          ]
+        },
+        {
+          "category": "Financial info",
+          "types": ["Purchase history"],
+          "collected": true,
+          "shared": false,
+          "required": false,
+          "purposes": ["App functionality"]
+        },
+        {
+          "category": "Photos and videos",
+          "types": ["Photos"],
+          "collected": true,
+          "shared": false,
+          "required": false,
+          "purposes": ["App functionality"]
+        },
+        {
+          "category": "Health and fitness",
+          "types": ["Fitness info"],
+          "collected": true,
+          "shared": false,
+          "required": false,
+          "purposes": ["App functionality"]
+        },
+        {
+          "category": "Location",
+          "types": ["Approximate location"],
+          "collected": true,
+          "shared": false,
+          "required": false,
+          "purposes": ["App functionality"]
+        },
+        {
+          "category": "App activity",
+          "types": ["App interactions"],
+          "collected": true,
+          "shared": false,
+          "required": false,
+          "purposes": ["App functionality", "Analytics"]
+        },
+        {
+          "category": "Device or other IDs",
+          "types": ["Device or other IDs"],
+          "collected": true,
+          "shared": false,
+          "required": false,
+          "purposes": ["App functionality", "Developer communications"]
+        }
+      ]
+    }
+  },
+  "websitePageConfig": {
+    "layout": "accordion",
+    "styleReference": "Apple Legal Website Terms of Use and Privacy Policy",
+    "showTableOfContents": true,
+    "showLastUpdated": true,
+    "showQuickLinks": true,
+    "showDownloadPdf": true,
+    "showLegalInformationNotice": true,
+    "sectionDividerStyle": "line",
+    "defaultExpandedCount": 2,
+    "typography": {
+      "pageTitleSize": "large",
+      "sectionTitleWeight": "semibold",
+      "bodyLineHeight": "relaxed"
+    },
+    "theme": {
+      "primaryBrand": "Groundup Society",
+      "accentColor": "#4A5D23",
+      "backgroundColor": "#FFFFFF",
+      "textColor": "#1A1A1A"
+    }
+  },
+  "disclaimer": "This document is provided for product and website implementation purposes. Have it reviewed by qualified legal counsel before App Store, Play Store, or regulatory submission."
+}
