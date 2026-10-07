@@ -323,6 +323,9 @@ $$;
 grant execute on function public.get_admin_onboarding_analytics() to authenticated, service_role;
 
 -- Extend staff list with onboarded counts
+-- Must drop first: Postgres cannot change OUT/return columns via CREATE OR REPLACE
+drop function if exists public.list_staff_members();
+
 create or replace function public.list_staff_members()
 returns table (
   id uuid,
