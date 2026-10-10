@@ -97,6 +97,7 @@ export interface LegalContent {
   routes: {
     privacyPolicy: string;
     termsOfUse: string;
+    support: string;
   };
   termsOfUse: LegalDocument;
   privacyPolicy: LegalDocument;

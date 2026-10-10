@@ -15,7 +15,8 @@
   },
   "routes": {
     "privacyPolicy": "/privacy",
-    "termsOfUse": "/terms"
+    "termsOfUse": "/terms",
+    "support": "/support"
   },
   "termsOfUse": {
     "pageTitle": "Terms of Use",
@@ -37,8 +38,8 @@
         },
         {
           "label": "Contact support",
-          "href": "mailto:tam@onemotionmanagement.com",
-          "type": "email"
+          "href": "/support",
+          "type": "page"
         }
       ]
     },

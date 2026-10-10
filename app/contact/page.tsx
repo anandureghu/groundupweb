@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site/site-header";
+import { SupportFormDialog } from "@/components/support/support-form-dialog";
 import { getLegalContent } from "@/lib/legal/get-legal-content";
 
 const legal = getLegalContent();
@@ -20,10 +21,17 @@ export default function ContactPage() {
         <h1 className="mb-3 text-[40px] leading-tight font-semibold tracking-tight md:text-[48px]">
           Contact
         </h1>
-        <p className="mb-10 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+        <p className="mb-8 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
           Have a question about {organization.brandName}? We&apos;d love to hear
           from you.
         </p>
+
+        <div className="mb-10 flex flex-wrap gap-3">
+          <SupportFormDialog triggerLabel="Open support form" />
+          <Button asChild variant="outline">
+            <Link href="/support">Visit support &amp; FAQ</Link>
+          </Button>
+        </div>
 
         <div className="space-y-6 border-t border-border pt-8 text-[15px] leading-relaxed">
           <div>
@@ -67,6 +75,9 @@ export default function ContactPage() {
         <div className="mt-12 flex flex-wrap gap-3">
           <Button asChild variant="outline">
             <Link href="/">Back to home</Link>
+          </Button>
+          <Button asChild variant="link" className="uppercase">
+            <Link href="/support">Support</Link>
           </Button>
           <Button asChild variant="link" className="uppercase">
             <Link href={legal.routes.privacyPolicy}>Privacy</Link>

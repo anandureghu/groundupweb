@@ -53,6 +53,9 @@ export default async function DownloadPage() {
           <Link href="/" className="underline underline-offset-2">
             Home
           </Link>
+          <Link href="/support" className="underline underline-offset-2">
+            Support
+          </Link>
           <Link href="/privacy" className="underline underline-offset-2">
             Privacy
           </Link>

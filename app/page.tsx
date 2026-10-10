@@ -14,6 +14,7 @@ export default async function Home() {
   const isComingSoon = gates.defaultMode === "coming_soon";
 
   const footerLinks = [
+    { label: "Support", href: "/support" },
     { label: "Privacy", href: "/privacy" },
     { label: "Terms", href: "/terms" },
     { label: "Download", href: "/download" },
