@@ -11,6 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { getCustomerEmailStatus } from "../actions";
+import { CustomerEmailAction } from "./customer-email-action";
 import { CustomerStatusAction } from "./customer-status-action";
 
 export const metadata: Metadata = {
@@ -64,19 +66,21 @@ export default async function AdminCustomerDetailPage({
 
   const supabase = await createServerSupabaseClient();
 
-  const [profileResult, ordersResult, rewardsResult] = await Promise.all([
-    supabase
-      .from("profiles")
-      .select(
-        "id, first_name, last_name, email, mobile_number, referral_code, points_balance, is_active, created_at",
-      )
-      .eq("id", id)
-      .maybeSingle<ProfileRow>(),
-    supabase.rpc("get_admin_customer_orders", { p_customer_id: id }),
-    supabase.rpc("get_admin_customer_reward_transactions", {
-      p_customer_id: id,
-    }),
-  ]);
+  const [profileResult, ordersResult, rewardsResult, emailStatusResult] =
+    await Promise.all([
+      supabase
+        .from("profiles")
+        .select(
+          "id, first_name, last_name, email, mobile_number, referral_code, points_balance, is_active, created_at",
+        )
+        .eq("id", id)
+        .maybeSingle<ProfileRow>(),
+      supabase.rpc("get_admin_customer_orders", { p_customer_id: id }),
+      supabase.rpc("get_admin_customer_reward_transactions", {
+        p_customer_id: id,
+      }),
+      getCustomerEmailStatus(id),
+    ]);
 
   const { data: customer, error: profileError } = profileResult;
 
@@ -142,6 +146,18 @@ export default async function AdminCustomerDetailPage({
           <div>
             <p className="text-muted-foreground">Joined</p>
             <p>{new Date(customer.created_at).toLocaleDateString()}</p>
+          </div>
+          <div className="col-span-2 sm:col-span-3">
+            <p className="mb-2 text-muted-foreground">Email verification</p>
+            {emailStatusResult.error ? (
+              <p className="text-sm text-destructive">{emailStatusResult.error}</p>
+            ) : (
+              <CustomerEmailAction
+                customerId={customer.id}
+                emailConfirmed={emailStatusResult.data?.emailConfirmed ?? false}
+                emailConfirmedAt={emailStatusResult.data?.emailConfirmedAt ?? null}
+              />
+            )}
           </div>
         </CardContent>
       </Card>
