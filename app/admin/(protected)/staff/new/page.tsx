@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { AdminPageHeader } from "@/components/admin/admin-ui";
 import { requireAdmin } from "@/lib/admin/auth";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
@@ -31,12 +32,11 @@ export default async function NewStaffPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div>
-        <h1 className="text-2xl font-semibold">New staff member</h1>
-        <p className="text-sm text-muted-foreground">
-          Create an account for a staff member or admin.
-        </p>
-      </div>
+      <AdminPageHeader
+        breadcrumb={{ href: "/admin/staff", label: "Staff" }}
+        title="New staff member"
+        description="Create an account for a staff member or admin."
+      />
 
       <NewStaffForm stores={stores} />
     </div>

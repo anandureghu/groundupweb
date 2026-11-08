@@ -4,8 +4,12 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import {
+  AdminField,
+  AdminSection,
+  adminControlClassName,
+  adminSelectClassName,
+} from "@/components/admin/admin-ui";
 
 import { createStaff } from "../actions";
 
@@ -58,128 +62,144 @@ export function NewStaffForm({ stores }: { stores: StoreOption[] }) {
 
   if (created) {
     return (
-      <div className="flex flex-col gap-4 border border-border p-6">
-        <div>
-          <h2 className="text-lg font-semibold">Staff member created</h2>
-          <p className="text-sm text-muted-foreground">
-            Share this temporary password with {created.email}. It will not
-            be shown again.
-          </p>
-        </div>
+      <AdminSection
+        title="Staff member created"
+        description={`Share this temporary password with ${created.email}. It will not be shown again.`}
+      >
+        <div className="flex flex-col gap-4">
+          <div>
+            <p className="text-sm text-zinc-500">Email</p>
+            <p className="font-medium text-zinc-900">{created.email}</p>
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <Label>Email</Label>
-          <p className="text-sm">{created.email}</p>
-        </div>
+          <div>
+            <p className="mb-2 text-sm text-zinc-500">Temporary password</p>
+            <div className="flex flex-wrap items-center gap-2">
+              <code className="rounded-md border border-zinc-200 bg-zinc-50 px-3 py-2 text-sm">
+                {created.temporaryPassword}
+              </code>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={handleCopy}
+                className="rounded-lg border-zinc-300"
+              >
+                {copied ? "Copied" : "Copy"}
+              </Button>
+            </div>
+          </div>
 
-        <div className="flex flex-col gap-2">
-          <Label>Temporary password</Label>
-          <div className="flex items-center gap-2">
-            <code className="border border-border bg-muted/40 px-3 py-2 text-sm">
-              {created.temporaryPassword}
-            </code>
-            <Button type="button" variant="outline" size="sm" onClick={handleCopy}>
-              {copied ? "Copied" : "Copy"}
+          <div className="flex flex-wrap gap-3">
+            <Button
+              type="button"
+              onClick={() => router.push("/admin/staff")}
+              className="rounded-lg"
+            >
+              Back to staff
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="rounded-lg border-zinc-300"
+              onClick={() => {
+                setCreated(null);
+                setCopied(false);
+                setName("");
+                setEmail("");
+                setRole("staff");
+                setStoreId(stores[0]?.id ?? "");
+              }}
+            >
+              Create another
             </Button>
           </div>
         </div>
-
-        <div className="flex gap-3">
-          <Button type="button" onClick={() => router.push("/admin/staff")}>
-            Back to staff
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => {
-              setCreated(null);
-              setCopied(false);
-              setName("");
-              setEmail("");
-              setRole("staff");
-              setStoreId(stores[0]?.id ?? "");
-            }}
-          >
-            Create another
-          </Button>
-        </div>
-      </div>
+      </AdminSection>
     );
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex max-w-md flex-col gap-4 border border-border p-6"
+    <AdminSection
+      title="Account details"
+      description="They’ll sign in with email and the temporary password you share."
     >
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="name">Name</Label>
-        <Input
-          id="name"
-          name="name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          required
-        />
-      </div>
+      <form onSubmit={handleSubmit} className="flex max-w-xl flex-col gap-4">
+        <AdminField label="Name" htmlFor="name">
+          <input
+            id="name"
+            name="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            required
+            className={adminControlClassName}
+          />
+        </AdminField>
 
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="email">Email</Label>
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-      </div>
+        <AdminField label="Email" htmlFor="email">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+            className={adminControlClassName}
+          />
+        </AdminField>
 
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="role">Role</Label>
-        <select
-          id="role"
-          name="role"
-          value={role}
-          onChange={(event) => setRole(event.target.value as "staff" | "admin")}
-          className="h-10 w-full border border-border bg-transparent px-2 text-sm outline-none focus-visible:border-ring"
+        <div className="grid gap-4 sm:grid-cols-2">
+          <AdminField label="Role" htmlFor="role">
+            <select
+              id="role"
+              name="role"
+              value={role}
+              onChange={(event) =>
+                setRole(event.target.value as "staff" | "admin")
+              }
+              className={adminSelectClassName}
+            >
+              <option value="staff">Staff</option>
+              <option value="admin">Admin</option>
+            </select>
+          </AdminField>
+
+          <AdminField label="Store" htmlFor="storeId">
+            <select
+              id="storeId"
+              name="storeId"
+              value={storeId}
+              onChange={(event) => setStoreId(event.target.value)}
+              required
+              className={adminSelectClassName}
+            >
+              {stores.length === 0 ? (
+                <option value="">No active stores</option>
+              ) : (
+                stores.map((store) => (
+                  <option key={store.id} value={store.id}>
+                    {store.name}
+                  </option>
+                ))
+              )}
+            </select>
+          </AdminField>
+        </div>
+
+        {error ? (
+          <p role="alert" className="text-sm text-red-600">
+            {error}
+          </p>
+        ) : null}
+
+        <Button
+          type="submit"
+          disabled={pending || stores.length === 0}
+          className="w-fit rounded-lg"
         >
-          <option value="staff">Staff</option>
-          <option value="admin">Admin</option>
-        </select>
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <Label htmlFor="storeId">Store</Label>
-        <select
-          id="storeId"
-          name="storeId"
-          value={storeId}
-          onChange={(event) => setStoreId(event.target.value)}
-          required
-          className="h-10 w-full border border-border bg-transparent px-2 text-sm outline-none focus-visible:border-ring"
-        >
-          {stores.length === 0 ? (
-            <option value="">No active stores</option>
-          ) : (
-            stores.map((store) => (
-              <option key={store.id} value={store.id}>
-                {store.name}
-              </option>
-            ))
-          )}
-        </select>
-      </div>
-
-      {error ? (
-        <p role="alert" className="text-sm text-destructive">
-          {error}
-        </p>
-      ) : null}
-
-      <Button type="submit" disabled={pending || stores.length === 0}>
-        {pending ? "Creating…" : "Create staff member"}
-      </Button>
-    </form>
+          {pending ? "Creating…" : "Create staff member"}
+        </Button>
+      </form>
+    </AdminSection>
   );
 }

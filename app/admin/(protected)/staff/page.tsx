@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { AdminPageHeader } from "@/components/admin/admin-ui";
 import { requireAdmin } from "@/lib/admin/auth";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { Button } from "@/components/ui/button";
@@ -47,18 +48,15 @@ export default async function AdminStaffPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-semibold">Staff</h1>
-          <p className="text-sm text-muted-foreground">
-            {staff.length} member
-            {staff.length === 1 ? "" : "s"}
-          </p>
-        </div>
-        <Button asChild>
-          <Link href="/admin/staff/new">New staff member</Link>
-        </Button>
-      </div>
+      <AdminPageHeader
+        title="Staff"
+        description={`${staff.length} member${staff.length === 1 ? "" : "s"}`}
+        actions={
+          <Button asChild className="rounded-lg">
+            <Link href="/admin/staff/new">New staff member</Link>
+          </Button>
+        }
+      />
 
       <StaffList staff={staff} />
     </div>

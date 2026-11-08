@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { AdminPageHeader } from "@/components/admin/admin-ui";
 import { requireAdmin } from "@/lib/admin/auth";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
@@ -38,13 +39,10 @@ export default async function AdminCopyPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div>
-        <h1 className="text-2xl font-semibold">App copy</h1>
-        <p className="text-sm text-muted-foreground">
-          Editable titles and bodies for in-app messages (notices, version gate,
-          and future prompts).
-        </p>
-      </div>
+      <AdminPageHeader
+        title="App copy"
+        description="Editable titles and bodies for in-app messages (notices, version gate, and future prompts)."
+      />
 
       <CopyForm entries={entries} />
     </div>

@@ -3,7 +3,14 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
-import { Input } from "@/components/ui/input";
+import {
+  AdminStatusPill,
+  AdminTable,
+  AdminTableHead,
+  AdminTd,
+  AdminTh,
+  adminControlClassName,
+} from "@/components/admin/admin-ui";
 
 export type AdminStaffRow = {
   id: string;
@@ -35,70 +42,71 @@ export function StaffList({ staff }: { staff: AdminStaffRow[] }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <Input
+      <input
         type="search"
         placeholder="Search by name or email"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        className="max-w-sm"
+        className={`${adminControlClassName} max-w-sm`}
         aria-label="Search staff"
       />
 
-      <div className="overflow-x-auto border border-border">
-        <table className="w-full text-left text-sm">
-          <thead className="border-b border-border bg-muted/40">
+      <AdminTable>
+        <AdminTableHead>
+          <tr>
+            <AdminTh>Name</AdminTh>
+            <AdminTh>Email</AdminTh>
+            <AdminTh>Role</AdminTh>
+            <AdminTh>Store</AdminTh>
+            <AdminTh>Status</AdminTh>
+          </tr>
+        </AdminTableHead>
+        <tbody>
+          {filtered.length === 0 ? (
             <tr>
-              <th className="px-4 py-3 font-semibold">Name</th>
-              <th className="px-4 py-3 font-semibold">Email</th>
-              <th className="px-4 py-3 font-semibold">Role</th>
-              <th className="px-4 py-3 font-semibold">Store</th>
-              <th className="px-4 py-3 font-semibold">Status</th>
+              <td
+                colSpan={5}
+                className="px-4 py-8 text-center text-sm text-zinc-500"
+              >
+                No staff found.
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {filtered.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={5}
-                  className="px-4 py-6 text-center text-muted-foreground"
-                >
-                  No staff found.
-                </td>
-              </tr>
-            ) : (
-              filtered.map((member) => {
-                const name =
-                  `${member.firstName ?? ""} ${member.lastName ?? ""}`.trim() ||
-                  "—";
+          ) : (
+            filtered.map((member) => {
+              const name =
+                `${member.firstName ?? ""} ${member.lastName ?? ""}`.trim() ||
+                "—";
 
-                return (
-                  <tr
-                    key={member.id}
-                    className="border-b border-border last:border-b-0"
-                  >
-                    <td className="px-4 py-3">
-                      <Link
-                        href={`/admin/staff/${member.id}`}
-                        className="font-medium text-primary hover:underline"
-                      >
-                        {name}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-3">{member.email ?? "—"}</td>
-                    <td className="px-4 py-3 capitalize">
-                      {member.staffRole ?? "—"}
-                    </td>
-                    <td className="px-4 py-3">{member.storeName ?? "—"}</td>
-                    <td className="px-4 py-3">
-                      {member.isActive ? "Active" : "Disabled"}
-                    </td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </table>
-      </div>
+              return (
+                <tr
+                  key={member.id}
+                  className="border-b border-zinc-100 last:border-b-0 hover:bg-zinc-50/80"
+                >
+                  <AdminTd>
+                    <Link
+                      href={`/admin/staff/${member.id}`}
+                      className="font-medium text-zinc-900 underline-offset-2 hover:underline"
+                    >
+                      {name}
+                    </Link>
+                  </AdminTd>
+                  <AdminTd>{member.email ?? "—"}</AdminTd>
+                  <AdminTd className="capitalize">
+                    {member.staffRole ?? "—"}
+                  </AdminTd>
+                  <AdminTd>{member.storeName ?? "—"}</AdminTd>
+                  <AdminTd>
+                    <AdminStatusPill
+                      active={member.isActive}
+                      inactiveLabel="Disabled"
+                    />
+                  </AdminTd>
+                </tr>
+              );
+            })
+          )}
+        </tbody>
+      </AdminTable>
     </div>
   );
 }

@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import {
+  AdminPageHeader,
+  AdminSection,
+  AdminStatusPill,
+} from "@/components/admin/admin-ui";
 import { requireAdmin } from "@/lib/admin/auth";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 import { StaffStatusAction } from "./staff-status-action";
 
@@ -83,47 +81,50 @@ export default async function AdminStaffDetailPage({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-semibold">{name}</h1>
-          <p className="text-sm text-muted-foreground">
-            {staffMember.email}
-          </p>
-        </div>
-        <StaffStatusAction
-          staffId={staffMember.id}
-          isActive={staffMember.is_active ?? true}
-        />
-      </div>
+      <AdminPageHeader
+        breadcrumb={{ href: "/admin/staff", label: "Staff" }}
+        title={name}
+        description={staffMember.email ?? undefined}
+        actions={
+          <>
+            <AdminStatusPill
+              active={staffMember.is_active ?? true}
+              inactiveLabel="Disabled"
+            />
+            <StaffStatusAction
+              staffId={staffMember.id}
+              isActive={staffMember.is_active ?? true}
+            />
+          </>
+        }
+      />
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Profile</CardTitle>
-          <CardDescription>Staff account details</CardDescription>
-        </CardHeader>
-        <CardContent className="grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">
+      <AdminSection title="Profile" description="Staff account details">
+        <div className="grid grid-cols-2 gap-4 text-sm sm:grid-cols-3">
           <div>
-            <p className="text-muted-foreground">Role</p>
-            <p className="capitalize">{staffMember.staff_role ?? "—"}</p>
+            <p className="text-zinc-500">Role</p>
+            <p className="font-medium capitalize text-zinc-900">
+              {staffMember.staff_role ?? "—"}
+            </p>
           </div>
           <div>
-            <p className="text-muted-foreground">Assigned store</p>
-            <p>{storeName ?? "—"}</p>
+            <p className="text-zinc-500">Assigned store</p>
+            <p className="font-medium text-zinc-900">{storeName ?? "—"}</p>
           </div>
           <div>
-            <p className="text-muted-foreground">Status</p>
-            <p>{staffMember.is_active ? "Active" : "Disabled"}</p>
+            <p className="text-zinc-500">Mobile number</p>
+            <p className="font-medium text-zinc-900">
+              {staffMember.mobile_number ?? "—"}
+            </p>
           </div>
           <div>
-            <p className="text-muted-foreground">Mobile number</p>
-            <p>{staffMember.mobile_number ?? "—"}</p>
+            <p className="text-zinc-500">Joined</p>
+            <p className="font-medium text-zinc-900">
+              {new Date(staffMember.created_at).toLocaleDateString()}
+            </p>
           </div>
-          <div>
-            <p className="text-muted-foreground">Joined</p>
-            <p>{new Date(staffMember.created_at).toLocaleDateString()}</p>
-          </div>
-        </CardContent>
-      </Card>
+        </div>
+      </AdminSection>
     </div>
   );
 }

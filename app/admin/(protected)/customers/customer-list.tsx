@@ -3,7 +3,14 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 
-import { Input } from "@/components/ui/input";
+import {
+  AdminStatusPill,
+  AdminTable,
+  AdminTableHead,
+  AdminTd,
+  AdminTh,
+  adminControlClassName,
+} from "@/components/admin/admin-ui";
 
 export type AdminCustomerRow = {
   id: string;
@@ -39,70 +46,71 @@ export function CustomerList({
 
   return (
     <div className="flex flex-col gap-4">
-      <Input
+      <input
         type="search"
         placeholder="Search by name or email"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        className="max-w-sm"
+        className={`${adminControlClassName} max-w-sm`}
         aria-label="Search customers"
       />
 
-      <div className="overflow-x-auto border border-border">
-        <table className="w-full text-left text-sm">
-          <thead className="border-b border-border bg-muted/40">
+      <AdminTable>
+        <AdminTableHead>
+          <tr>
+            <AdminTh>Name</AdminTh>
+            <AdminTh>Email</AdminTh>
+            <AdminTh>Points</AdminTh>
+            <AdminTh>Status</AdminTh>
+            <AdminTh>Joined</AdminTh>
+          </tr>
+        </AdminTableHead>
+        <tbody>
+          {filtered.length === 0 ? (
             <tr>
-              <th className="px-4 py-3 font-semibold">Name</th>
-              <th className="px-4 py-3 font-semibold">Email</th>
-              <th className="px-4 py-3 font-semibold">Points balance</th>
-              <th className="px-4 py-3 font-semibold">Status</th>
-              <th className="px-4 py-3 font-semibold">Joined</th>
+              <td
+                colSpan={5}
+                className="px-4 py-8 text-center text-sm text-zinc-500"
+              >
+                No customers found.
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {filtered.length === 0 ? (
-              <tr>
-                <td
-                  colSpan={5}
-                  className="px-4 py-6 text-center text-muted-foreground"
-                >
-                  No customers found.
-                </td>
-              </tr>
-            ) : (
-              filtered.map((customer) => {
-                const name =
-                  `${customer.firstName ?? ""} ${customer.lastName ?? ""}`.trim() ||
-                  "—";
+          ) : (
+            filtered.map((customer) => {
+              const name =
+                `${customer.firstName ?? ""} ${customer.lastName ?? ""}`.trim() ||
+                "—";
 
-                return (
-                  <tr
-                    key={customer.id}
-                    className="border-b border-border last:border-b-0"
-                  >
-                    <td className="px-4 py-3">
-                      <Link
-                        href={`/admin/customers/${customer.id}`}
-                        className="font-medium text-primary hover:underline"
-                      >
-                        {name}
-                      </Link>
-                    </td>
-                    <td className="px-4 py-3">{customer.email ?? "—"}</td>
-                    <td className="px-4 py-3">{customer.pointsBalance}</td>
-                    <td className="px-4 py-3">
-                      {customer.isActive ? "Active" : "Disabled"}
-                    </td>
-                    <td className="px-4 py-3">
-                      {new Date(customer.createdAt).toLocaleDateString()}
-                    </td>
-                  </tr>
-                );
-              })
-            )}
-          </tbody>
-        </table>
-      </div>
+              return (
+                <tr
+                  key={customer.id}
+                  className="border-b border-zinc-100 last:border-b-0 hover:bg-zinc-50/80"
+                >
+                  <AdminTd>
+                    <Link
+                      href={`/admin/customers/${customer.id}`}
+                      className="font-medium text-zinc-900 underline-offset-2 hover:underline"
+                    >
+                      {name}
+                    </Link>
+                  </AdminTd>
+                  <AdminTd>{customer.email ?? "—"}</AdminTd>
+                  <AdminTd>{customer.pointsBalance}</AdminTd>
+                  <AdminTd>
+                    <AdminStatusPill
+                      active={customer.isActive}
+                      inactiveLabel="Disabled"
+                    />
+                  </AdminTd>
+                  <AdminTd>
+                    {new Date(customer.createdAt).toLocaleDateString()}
+                  </AdminTd>
+                </tr>
+              );
+            })
+          )}
+        </tbody>
+      </AdminTable>
     </div>
   );
 }

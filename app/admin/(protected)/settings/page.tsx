@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 
+import {
+  AdminPageHeader,
+  AdminSection,
+  AdminTable,
+  AdminTableHead,
+  AdminTd,
+  AdminTh,
+} from "@/components/admin/admin-ui";
 import { requireAdmin } from "@/lib/admin/auth";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
@@ -56,54 +64,51 @@ export default async function AdminSettingsPage() {
   const noticeRows = (notices as ListMemberNoticeRow[] | null) ?? [];
 
   return (
-    <div className="flex flex-col gap-8">
-      <div>
-        <h1 className="text-2xl font-semibold">App settings</h1>
-        <p className="text-sm text-muted-foreground">
-          Integer and text values used by the mobile app. Version gate keys:{" "}
-          <span className="font-mono">min_supported_app_version</span>,{" "}
-          <span className="font-mono">new_version_available</span>.
-        </p>
-      </div>
+    <div className="flex flex-col gap-6">
+      <AdminPageHeader
+        title="App settings"
+        description="Integer and text values used by the mobile app. Version gate keys: min_supported_app_version, new_version_available."
+      />
 
       {noticeRows.length > 0 ? (
-        <section className="flex flex-col gap-3">
-          <h2 className="text-lg font-semibold">Member notices</h2>
-          <div className="overflow-x-auto border border-border">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b border-border bg-muted/40">
-                <tr>
-                  <th className="px-4 py-3 font-semibold">Copy key</th>
-                  <th className="px-4 py-3 font-semibold">Active</th>
-                  <th className="px-4 py-3 font-semibold">Recipients</th>
-                  <th className="px-4 py-3 font-semibold">Unseen</th>
-                  <th className="px-4 py-3 font-semibold">Created</th>
+        <AdminSection
+          title="Member notices"
+          description="Recent notice broadcasts and delivery counts."
+        >
+          <AdminTable className="border-0 shadow-none">
+            <AdminTableHead>
+              <tr>
+                <AdminTh>Copy key</AdminTh>
+                <AdminTh>Active</AdminTh>
+                <AdminTh>Recipients</AdminTh>
+                <AdminTh>Unseen</AdminTh>
+                <AdminTh>Created</AdminTh>
+              </tr>
+            </AdminTableHead>
+            <tbody>
+              {noticeRows.map((notice) => (
+                <tr
+                  key={notice.id}
+                  className="border-b border-zinc-100 last:border-b-0"
+                >
+                  <AdminTd className="font-mono text-xs">
+                    {notice.copy_key}
+                  </AdminTd>
+                  <AdminTd>{notice.active ? "Yes" : "No"}</AdminTd>
+                  <AdminTd>{notice.recipient_count}</AdminTd>
+                  <AdminTd>{notice.unseen_count}</AdminTd>
+                  <AdminTd className="text-zinc-500">
+                    {new Date(notice.created_at).toLocaleString()}
+                  </AdminTd>
                 </tr>
-              </thead>
-              <tbody>
-                {noticeRows.map((notice) => (
-                  <tr key={notice.id} className="border-b border-border">
-                    <td className="px-4 py-3 font-mono text-xs">
-                      {notice.copy_key}
-                    </td>
-                    <td className="px-4 py-3">
-                      {notice.active ? "Yes" : "No"}
-                    </td>
-                    <td className="px-4 py-3">{notice.recipient_count}</td>
-                    <td className="px-4 py-3">{notice.unseen_count}</td>
-                    <td className="px-4 py-3 text-muted-foreground">
-                      {new Date(notice.created_at).toLocaleString()}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
+              ))}
+            </tbody>
+          </AdminTable>
+        </AdminSection>
       ) : null}
 
       {settings.length === 0 ? (
-        <p className="text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed border-zinc-300 bg-white px-4 py-8 text-center text-sm text-zinc-500">
           No settings returned. Ensure migrations are applied.
         </p>
       ) : (

@@ -9,9 +9,13 @@ export default async function AdminLayout({
   const { email } = await requireAdmin();
 
   return (
-    <div className="flex min-h-screen w-full bg-background">
+    <div className="flex h-dvh w-full overflow-hidden bg-zinc-100 text-zinc-900">
       <AdminNav email={email} />
-      <main className="flex-1 overflow-y-auto px-8 py-8">{children}</main>
+      <main className="min-h-0 min-w-0 flex-1 overflow-y-auto">
+        <div className="mx-auto w-full max-w-6xl px-6 py-8 sm:px-8">
+          {children}
+        </div>
+      </main>
     </div>
   );
 }

@@ -3,8 +3,11 @@
 import { useActionState } from "react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import {
+  AdminField,
+  AdminSection,
+  adminControlClassName,
+} from "@/components/admin/admin-ui";
 
 import { saveAppSetting, type SettingsActionState } from "./actions";
 
@@ -18,7 +21,7 @@ export type AppSettingRow = {
 
 export function SettingsForm({ settings }: { settings: AppSettingRow[] }) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4">
       {settings.map((setting) => (
         <SettingCard key={setting.key} setting={setting} />
       ))}
@@ -33,60 +36,59 @@ function SettingCard({ setting }: { setting: AppSettingRow }) {
   >(saveAppSetting, null);
 
   return (
-    <form
-      action={action}
-      className="flex flex-col gap-3 border border-border p-4"
+    <AdminSection
+      title={setting.key}
+      description={setting.description ?? undefined}
     >
-      <input type="hidden" name="key" value={setting.key} />
-      <div className="flex flex-col gap-1">
-        <p className="font-mono text-sm font-semibold">{setting.key}</p>
-        {setting.description ? (
-          <p className="text-xs text-muted-foreground">{setting.description}</p>
-        ) : null}
-      </div>
+      <form action={action} className="flex flex-col gap-4">
+        <input type="hidden" name="key" value={setting.key} />
 
-      <div className="grid gap-3 md:grid-cols-2">
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor={`${setting.key}-int`}>Integer value</Label>
-          <Input
-            id={`${setting.key}-int`}
-            name="value_integer"
-            type="number"
-            min={0}
-            defaultValue={setting.valueInteger}
-            required
-          />
+        <div className="grid gap-4 md:grid-cols-2">
+          <AdminField label="Integer value" htmlFor={`${setting.key}-int`}>
+            <input
+              id={`${setting.key}-int`}
+              name="value_integer"
+              type="number"
+              min={0}
+              defaultValue={setting.valueInteger}
+              required
+              className={adminControlClassName}
+            />
+          </AdminField>
+          <AdminField label="Text value" htmlFor={`${setting.key}-text`}>
+            <input
+              id={`${setting.key}-text`}
+              name="value_text"
+              defaultValue={setting.valueText ?? ""}
+              className={adminControlClassName}
+            />
+          </AdminField>
+          <AdminField
+            label="Description"
+            htmlFor={`${setting.key}-desc`}
+            className="md:col-span-2"
+          >
+            <input
+              id={`${setting.key}-desc`}
+              name="description"
+              defaultValue={setting.description ?? ""}
+              className={adminControlClassName}
+            />
+          </AdminField>
         </div>
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor={`${setting.key}-text`}>Text value</Label>
-          <Input
-            id={`${setting.key}-text`}
-            name="value_text"
-            defaultValue={setting.valueText ?? ""}
-          />
+
+        <div className="flex flex-wrap items-center gap-3">
+          <Button type="submit" size="sm" disabled={pending} className="rounded-lg">
+            {pending ? "Saving…" : "Save"}
+          </Button>
+          {state?.error ? (
+            <p className="text-sm text-red-600">{state.error}</p>
+          ) : null}
+          {state?.success ? (
+            <p className="text-sm text-emerald-700">{state.success}</p>
+          ) : null}
         </div>
-      </div>
-
-      <div className="flex flex-col gap-1.5">
-        <Label htmlFor={`${setting.key}-desc`}>Description</Label>
-        <Input
-          id={`${setting.key}-desc`}
-          name="description"
-          defaultValue={setting.description ?? ""}
-        />
-      </div>
-
-      <div className="flex items-center gap-3">
-        <Button type="submit" size="sm" disabled={pending}>
-          {pending ? "Saving…" : "Save"}
-        </Button>
-        {state?.error ? (
-          <p className="text-sm text-destructive">{state.error}</p>
-        ) : null}
-        {state?.success ? (
-          <p className="text-sm text-muted-foreground">{state.success}</p>
-        ) : null}
-      </div>
-    </form>
+      </form>
+    </AdminSection>
   );
 }

@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 
+import {
+  AdminPageHeader,
+  AdminSection,
+} from "@/components/admin/admin-ui";
 import { requireAdmin } from "@/lib/admin/auth";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import {
   toGrowthChartSeries,
   type GrowthAnalyticsRow,
@@ -72,45 +69,35 @@ export default async function AdminOverviewPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div>
-        <h1 className="text-2xl font-semibold">Overview</h1>
-        <p className="text-sm text-muted-foreground">
-          Account totals and signup growth over the last {GROWTH_WINDOW_DAYS}{" "}
-          days.
-        </p>
-      </div>
+      <AdminPageHeader
+        title="Overview"
+        description={`Account totals and signup growth over the last ${GROWTH_WINDOW_DAYS} days.`}
+      />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {cards.map((card) => (
-          <Card key={card.label}>
-            <CardHeader>
-              <CardDescription>{card.label}</CardDescription>
-              <CardTitle className="text-3xl normal-case tracking-normal">
-                {card.value}
-              </CardTitle>
-            </CardHeader>
-          </Card>
+          <div
+            key={card.label}
+            className="rounded-xl border border-zinc-200 bg-white px-5 py-4 shadow-sm"
+          >
+            <p className="text-sm text-zinc-500">{card.label}</p>
+            <p className="mt-1 text-3xl font-semibold tracking-tight text-zinc-900">
+              {card.value}
+            </p>
+          </div>
         ))}
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Signup growth</CardTitle>
-          <CardDescription>
-            New customers vs. new staff per day, last {GROWTH_WINDOW_DAYS}{" "}
-            days
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {series.length === 0 ? (
-            <p className="text-sm text-muted-foreground">
-              No signup data yet.
-            </p>
-          ) : (
-            <OverviewGrowthChart data={series} />
-          )}
-        </CardContent>
-      </Card>
+      <AdminSection
+        title="Signup growth"
+        description={`New customers vs. new staff per day, last ${GROWTH_WINDOW_DAYS} days.`}
+      >
+        {series.length === 0 ? (
+          <p className="text-sm text-zinc-500">No signup data yet.</p>
+        ) : (
+          <OverviewGrowthChart data={series} />
+        )}
+      </AdminSection>
     </div>
   );
 }
