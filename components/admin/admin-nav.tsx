@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/admin/staff", label: "Staff" },
   { href: "/admin/products", label: "Products" },
   { href: "/admin/challenges", label: "Challenges" },
+  { href: "/admin/rewards", label: "Rewards" },
   { href: "/admin/notifications", label: "Notifications" },
   { href: "/admin/settings", label: "Settings" },
   { href: "/admin/copy", label: "Copy" },

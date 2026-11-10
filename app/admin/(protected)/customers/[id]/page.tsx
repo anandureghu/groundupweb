@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import {
@@ -143,6 +144,12 @@ export default async function AdminCustomerDetailPage({
             <p className="font-medium text-zinc-900">
               {customer.points_balance ?? 0}
             </p>
+            <Link
+              href={`/admin/rewards?member=${customer.id}`}
+              className="text-xs font-medium text-zinc-600 underline-offset-2 hover:underline"
+            >
+              Adjust points
+            </Link>
           </div>
           <div>
             <p className="text-zinc-500">Referral code</p>
