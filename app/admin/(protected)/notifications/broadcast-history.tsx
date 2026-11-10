@@ -88,7 +88,7 @@ export function BroadcastHistory({ rows }: { rows: BroadcastHistoryRow[] }) {
                   {row.title}
                 </AdminTd>
                 <AdminTd>
-                  {audienceLabel(row.audienceType, row.audienceFilter)}
+                  {audienceLabel(row.audienceType, row.audienceFilter, row.recipientCount)}
                 </AdminTd>
                 <AdminTd>{broadcastStatusLabel(row.status)}</AdminTd>
                 <AdminTd>{row.recipientCount}</AdminTd>

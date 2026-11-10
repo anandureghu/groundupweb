@@ -11,6 +11,7 @@ import {
   field,
   isAudienceId,
   parseNotificationSettingsForm,
+  parseProfileIds,
   parseScheduleInput,
   type NotificationSettingsFormInput,
 } from "@/lib/admin/notifications";
@@ -226,20 +227,46 @@ export async function deleteNotificationTemplate(
   redirect("/admin/notifications/templates");
 }
 
-export async function previewBroadcastAudience(
-  audienceId: string,
-): Promise<NotificationActionState> {
+async function customerIds(
+  supabase: Awaited<ReturnType<typeof createServerSupabaseClient>>,
+): Promise<Set<string>> {
+  const { data, error } = await supabase.rpc("list_customers");
+  if (error) {
+    throw new Error(error.message);
+  }
+  const rows = (data as { id?: string }[] | null) ?? [];
+  return new Set(rows.map((row) => String(row.id ?? "").toLowerCase()).filter(Boolean));
+}
+
+export async function previewBroadcastAudience(input: {
+  audienceId: string;
+  profileIds?: string[];
+}): Promise<NotificationActionState> {
   await requireAdmin();
-  if (!isAudienceId(audienceId)) {
+  if (!isAudienceId(input.audienceId)) {
     return { error: "Choose a valid audience." };
   }
 
-  const audience = audiencePayload(audienceId);
+  const audience = audiencePayload(input.audienceId);
   const supabase = await createServerSupabaseClient();
+  let selected: string[] = [];
+
+  if (audience.audienceType === "selected") {
+    try {
+      const allowed = await customerIds(supabase);
+      selected = parseProfileIds(input.profileIds ?? []).filter((id) => allowed.has(id));
+    } catch (error) {
+      return { error: error instanceof Error ? error.message : "Could not load members." };
+    }
+    if (selected.length === 0) {
+      return { error: "Choose at least one member." };
+    }
+  }
+
   const { data, error } = await supabase.rpc("preview_admin_broadcast_audience", {
     p_audience_type: audience.audienceType,
     p_audience_filter: audience.audienceFilter,
-    p_selected_profile_ids: [],
+    p_selected_profile_ids: selected,
   });
   const message = rpcError(error);
   if (message) {
@@ -268,8 +295,26 @@ export async function submitBroadcast(
 
   const audience = audiencePayload(audienceId);
   const supabase = await createServerSupabaseClient();
+  let selected: string[] = [];
+
+  if (audience.audienceType === "selected") {
+    try {
+      const allowed = await customerIds(supabase);
+      selected = parseProfileIds(formData.getAll("profileId").map(String)).filter((id) =>
+        allowed.has(id),
+      );
+    } catch (error) {
+      return { error: error instanceof Error ? error.message : "Could not load members." };
+    }
+    if (selected.length === 0) {
+      return { error: "Choose at least one member." };
+    }
+  }
 
   if (intent === "save-template") {
+    if (audience.audienceType === "selected") {
+      return { error: "Templates keep a reusable audience. Selected members are for this send only." };
+    }
     const name = field(formData, "templateName").trim();
     if (!name) {
       return { error: "Name, title, and message are required." };
@@ -316,7 +361,7 @@ export async function submitBroadcast(
     p_body: body,
     p_audience_type: audience.audienceType,
     p_audience_filter: audience.audienceFilter,
-    p_selected_profile_ids: [],
+    p_selected_profile_ids: selected,
     p_scheduled_for: scheduledFor,
     p_data: {},
     p_send_now: sendNow,
@@ -330,7 +375,7 @@ export async function submitBroadcast(
     action: "broadcast.create",
     entityType: "broadcast",
     entityId: typeof data === "string" ? data : undefined,
-    metadata: { sendNow, audience: audienceId },
+    metadata: { sendNow, audience: audienceId, recipients: selected.length || undefined },
   });
   revalidatePath("/admin/notifications");
   return {

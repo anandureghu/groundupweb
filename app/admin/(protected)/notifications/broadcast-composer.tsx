@@ -22,6 +22,7 @@ import {
   submitBroadcast,
   type NotificationActionState,
 } from "./actions";
+import { MemberPicker, type NotificationMember } from "./member-picker";
 
 export type BroadcastTemplateOption = {
   id: string;
@@ -34,8 +35,10 @@ export type BroadcastTemplateOption = {
 
 export function BroadcastComposer({
   templates,
+  members,
 }: {
   templates: BroadcastTemplateOption[];
+  members: NotificationMember[];
 }) {
   const [state, action, pending] = useActionState<
     NotificationActionState,
@@ -44,6 +47,7 @@ export function BroadcastComposer({
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [audience, setAudience] = useState<AudienceId>("all");
+  const [selectedMemberIds, setSelectedMemberIds] = useState<string[]>([]);
   const [scheduledFor, setScheduledFor] = useState("");
   const [templateName, setTemplateName] = useState("");
   const [previewCount, setPreviewCount] = useState<number | null>(null);
@@ -59,6 +63,7 @@ export function BroadcastComposer({
     setBody("");
     setScheduledFor("");
     setTemplateName("");
+    setSelectedMemberIds([]);
     setPreviewCount(null);
   }, [state]);
 
@@ -86,7 +91,10 @@ export function BroadcastComposer({
   async function handlePreview() {
     setPreviewError(null);
     setPreviewing(true);
-    const result = await previewBroadcastAudience(audience);
+    const result = await previewBroadcastAudience({
+      audienceId: audience,
+      profileIds: selectedMemberIds,
+    });
     setPreviewing(false);
     if (result?.error) {
       setPreviewCount(null);
@@ -192,6 +200,17 @@ export function BroadcastComposer({
           </div>
         </fieldset>
 
+        {audience === "selected" ? (
+          <MemberPicker
+            members={members}
+            selectedIds={selectedMemberIds}
+            onChange={(ids) => {
+              setSelectedMemberIds(ids);
+              setPreviewCount(null);
+            }}
+          />
+        ) : null}
+
         <div className="flex flex-wrap items-end gap-3">
           <Button
             type="button"
@@ -268,7 +287,7 @@ export function BroadcastComposer({
             variant="secondary"
             size="sm"
             className="rounded-lg"
-            disabled={pending}
+            disabled={pending || audience === "selected"}
           >
             Save as template
           </Button>

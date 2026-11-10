@@ -6,6 +6,7 @@ import {
   canCancelBroadcast,
   parseHour,
   parseNotificationSettingsForm,
+  parseProfileIds,
   parseScheduleInput,
   poundsToCents,
   selectionFromTemplate,
@@ -60,11 +61,21 @@ describe("audiencePayload", () => {
       audienceSegment: "inactive_7d",
     });
   });
+
+  it("targets explicit members without a segment", () => {
+    expect(audiencePayload("selected")).toEqual({
+      audienceType: "selected",
+      audienceFilter: {},
+      audienceSegment: null,
+    });
+  });
 });
 
 describe("audience labels", () => {
   it("labels stored broadcasts and templates", () => {
     expect(audienceLabel("all", {})).toBe("All customers");
+    expect(audienceLabel("selected", {}, 1)).toBe("1 member");
+    expect(audienceLabel("selected", {}, 4)).toBe("4 members");
     expect(audienceLabel("segment", { segment: "birthday_this_week" })).toBe(
       "Birthday this week",
     );
@@ -72,6 +83,13 @@ describe("audience labels", () => {
       "has_unused_coupon",
     );
     expect(selectionFromTemplate("all", null)).toBe("all");
+  });
+});
+
+describe("parseProfileIds", () => {
+  it("keeps unique valid ids", () => {
+    const id = "67b2d5f4-b499-4cab-9e02-c1fe2ac9cf35";
+    expect(parseProfileIds([id, ` ${id.toUpperCase()} `, "not-an-id", ""])).toEqual([id]);
   });
 });
 

@@ -3,6 +3,7 @@ export const AUDIENCE_OPTIONS = [
   { id: "inactive_7d", label: "Inactive 7+ days" },
   { id: "birthday_this_week", label: "Birthday this week" },
   { id: "has_unused_coupon", label: "Has unused coupon" },
+  { id: "selected", label: "Selected members" },
 ] as const;
 
 export type AudienceId = (typeof AUDIENCE_OPTIONS)[number]["id"];
@@ -38,7 +39,7 @@ const STATUS_LABELS: Record<BroadcastStatus, string> = {
 };
 
 export type AudiencePayload = {
-  audienceType: "all" | "segment";
+  audienceType: "all" | "segment" | "selected";
   audienceFilter: Record<string, string>;
   audienceSegment: string | null;
 };
@@ -47,7 +48,25 @@ export function isAudienceId(value: string): value is AudienceId {
   return AUDIENCE_OPTIONS.some((option) => option.id === value);
 }
 
+const PROFILE_ID_PATTERN =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+export function parseProfileIds(values: string[]): string[] {
+  const unique = new Set<string>();
+  for (const value of values) {
+    const id = value.trim().toLowerCase();
+    if (PROFILE_ID_PATTERN.test(id)) {
+      unique.add(id);
+    }
+  }
+  return [...unique];
+}
+
 export function audiencePayload(audience: AudienceId): AudiencePayload {
+  if (audience === "selected") {
+    return { audienceType: "selected", audienceFilter: {}, audienceSegment: null };
+  }
+
   if (audience === "all") {
     return { audienceType: "all", audienceFilter: {}, audienceSegment: null };
   }
@@ -62,7 +81,13 @@ export function audiencePayload(audience: AudienceId): AudiencePayload {
 export function audienceLabel(
   audienceType: string,
   audienceFilter: Record<string, unknown> | null | undefined,
+  recipientCount?: number,
 ): string {
+  if (audienceType === "selected") {
+    const count = recipientCount ?? 0;
+    return count === 1 ? "1 member" : `${count} members`;
+  }
+
   if (audienceType === "all") {
     return "All customers";
   }
